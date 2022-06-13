@@ -1,0 +1,54 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.opencsv.exceptions.CsvValidationException;
+
+import persistencia.PersistenciaCvs;
+
+public class CamposController extends HttpServlet{
+
+    PersistenciaCvs gbd;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CamposController() {
+        super();
+
+            try {
+                gbd = new PersistenciaCvs("datos.csv");
+            } catch (CsvValidationException | IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+    }
+
+    /**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        request.setAttribute("campos", gbd.getDatos());    
+        
+        RequestDispatcher rd = request.getRequestDispatcher("campos.jsp");
+
+        rd.forward(request, response);
+
+
+
+
+	}
+
+    
+
+
+
+    
+}

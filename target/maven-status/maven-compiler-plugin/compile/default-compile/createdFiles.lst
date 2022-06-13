@@ -1,0 +1,5 @@
+controller/ConsultaController.class
+persistencia/PersistenciaCvs.class
+controller/CamposController.class
+dominio/Respuesta.class
+persistencia/FiltroCvs.class
