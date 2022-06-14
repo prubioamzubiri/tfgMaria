@@ -34,8 +34,12 @@ public class CamposController extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int numcampos = Integer.parseInt(request.getParameter("numcampos"));
+
+        request.setAttribute("numcampos", numcampos);
 		
-        request.setAttribute("campos", gbd.getDatos());    
+        request.setAttribute("campos", gbd.getHeaders());    
         
         RequestDispatcher rd = request.getRequestDispatcher("campos.jsp");
 

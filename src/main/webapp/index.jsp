@@ -11,8 +11,8 @@
 </head>
 <body>
 
-    <form action = "/tfg/campos" method = "POST" target = "_blank">
-        Cuantos Campos Quieres estudiar?: <input type="number" id="numcampos" name="numcampos">
+    <form action = "/tfg/campos" method = "POST">
+        Cuantos Campos Quieres estudiar?: <input type="number" name="numcampos"/>
         <input type = "submit" value = "Ir" />
      </form>
 
