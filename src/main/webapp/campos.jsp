@@ -12,7 +12,7 @@
 <body>
 
 
-    <form action = "/tfg" method = "POST" target = "_blank">
+    <form action = "/tfg/respuesta" method = "POST">
    
         <input type="number" value="<c:out value="${param.numcampos}"/>" readonly>
 

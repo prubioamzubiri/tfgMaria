@@ -30,7 +30,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
   <servlet-mapping>
   	<servlet-name>ConsultaController</servlet-name>
-  	<url-pattern>/tfg</url-pattern>
+  	<url-pattern>/respuesta</url-pattern>
   </servlet-mapping>
 
 </web-app>
