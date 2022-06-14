@@ -6,4 +6,6 @@ ADD ./datos.csv datos.csv
 
 COPY ./catalina-dynamic-port.sh catalina-dynamic-port.sh
 
+RUN chmod u+x catalina-dynamic-port.sh
+
 CMD ["./catalina-dynamic-port.sh", "run"]
