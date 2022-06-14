@@ -47,7 +47,18 @@ public class CamposController extends HttpServlet{
 
         request.setAttribute("numcampos", numcampos);
 		
-        request.setAttribute("campos", gbd.getHeaders());    
+        request.setAttribute("campos", gbd.getHeaders());
+
+        String c = request.getParameter("conditional");
+        
+        request.setAttribute("conditional", c);
+        
+        if(c!=null)
+        {
+            int condnumcampos = Integer.parseInt(request.getParameter("condnumcampos"));
+
+            request.setAttribute("condnumcampos", condnumcampos);
+        }
         
         RequestDispatcher rd = request.getRequestDispatcher("campos.jsp");
 

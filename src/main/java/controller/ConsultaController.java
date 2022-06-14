@@ -108,6 +108,44 @@ public class ConsultaController extends HttpServlet{
         request.setAttribute("numactual", valores.size());
         request.setAttribute("percent", percent);
         request.setAttribute("numinicial", gbd.getNumeroDatos());
+
+        String c = request.getParameter("condnumcampos");
+
+        if(c!=null)
+        {
+            int condnumcampos = Integer.parseInt(request.getParameter("condnumcampos"));
+
+            for(int i = 1; i <= condnumcampos; i++)
+            {
+    
+                String campoc = "campoc" + i, respuestac = "respuestac" + i;
+    
+    
+                int headc = Integer.parseInt(request.getParameter(campoc));
+    
+    
+                String resc = request.getParameter(respuestac);
+    
+                valores = FiltroCvs.filtro(valores, headc, resc);
+    
+                float tamañoC = valores.size();
+                float percentC = tamañoC / tamañoV ;
+                percentC = percentC*100;
+        
+                request.setAttribute("valoresc", valores);
+        
+                request.setAttribute("numactualc", tamañoC);
+                request.setAttribute("percentc", percentC);
+                request.setAttribute("conditional", true);
+    
+            }
+    
+
+        }
+
+
+
+        
         
         RequestDispatcher rd = request.getRequestDispatcher("respuesta.jsp");
 

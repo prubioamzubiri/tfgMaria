@@ -15,6 +15,11 @@
     <br>
     <br>
 
+    <c:if test="${not empty requestScope.conditional}">
+        <p> Porcentaje condicionado al grupo prévio: <c:out value="${requestScope.percentc}"/> </p>
+    </c:if>
+
+
     <a href="../tfg">volver</a>
 
 
