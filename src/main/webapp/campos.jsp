@@ -14,7 +14,7 @@
 
     <form action = "/tfg/respuesta" method = "POST">
    
-        <input type="number" value="<c:out value="${param.numcampos}"/>" readonly>
+        <input type="number" name="numcampos" value="<c:out value="${param.numcampos}"/>" readonly>
 
         <br>
 
