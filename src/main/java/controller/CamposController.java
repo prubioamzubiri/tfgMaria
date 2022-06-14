@@ -22,7 +22,7 @@ public class CamposController extends HttpServlet{
         super();
 
             try {
-                gbd = new PersistenciaCvs("datos.csv");
+                gbd = new PersistenciaCvs("/usr/local/tomcat/webapps/datos.csv");
             } catch (CsvValidationException | IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
