@@ -40,14 +40,16 @@
         <br>
 
             <c:if test="${not empty requestScope.conditional}" >
-                <p> Campos condicionales: <input type="number" name="condnumcampos" value="<c:out value="${param.condnumcampos}"/>" readonly> </p>
+                <p> Campos condicionales: <input type="checkbox" name="conditional" value="on" readonly> <input type="number" name="condnumcampos" value="<c:out value="${param.condnumcampos}"/>" readonly> </p>
 
 
                 <c:forEach var="i" begin="1" end="${param.condnumcampos}" step="1" varStatus ="status">
+
+
         
             
 
-                    <select name="campo<c:out value="${i}"/>">
+                    <select name="campoc<c:out value="${i}"/>">
                         <c:forEach items="${campos}" var="campo" varStatus="loop">
                         <option value="${loop.index}">
                         <c:out value="${campo}"/>
@@ -55,7 +57,7 @@
                         </c:forEach>
                     </select>
         
-                    <input type="text" name="respuesta<c:out value="${i}"/>"/>
+                    <input type="text" name="respuestac<c:out value="${i}"/>"/>
         
                     <br>
         
