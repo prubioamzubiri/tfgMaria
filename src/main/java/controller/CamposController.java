@@ -21,12 +21,20 @@ public class CamposController extends HttpServlet{
     public CamposController() {
         super();
 
+		try {
+            gbd = new PersistenciaCvs("/usr/local/tomcat/webapps/datos.csv");
+        } catch (CsvValidationException | IOException e) {
             try {
-                gbd = new PersistenciaCvs("/usr/local/tomcat/webapps/datos.csv");
-            } catch (CsvValidationException | IOException e) {
+                gbd = new PersistenciaCvs("datos.csv");
+            } catch (CsvValidationException e1) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
             }
+            
+        }
 
     }
 

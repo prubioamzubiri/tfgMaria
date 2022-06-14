@@ -22,8 +22,16 @@ public class ConsultaController extends HttpServlet{
 		try {
             gbd = new PersistenciaCvs("/usr/local/tomcat/webapps/datos.csv");
         } catch (CsvValidationException | IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            try {
+                gbd = new PersistenciaCvs("datos.csv");
+            } catch (CsvValidationException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            
         }
 
     }
