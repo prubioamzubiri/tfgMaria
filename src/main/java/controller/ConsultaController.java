@@ -99,7 +99,11 @@ public class ConsultaController extends HttpServlet{
 
         }
 
-        float percent = valores.size()/ gbd.getNumeroDatos();
+        float tamañoV = valores.size();
+        float tamañoOri = gbd.getNumeroDatos();
+        float percent = tamañoV/ tamañoOri;
+        
+        percent = percent*100;
 
         request.setAttribute("headers", headers);
         request.setAttribute("valores", valores);

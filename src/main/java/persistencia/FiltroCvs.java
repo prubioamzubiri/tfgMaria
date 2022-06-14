@@ -13,6 +13,7 @@ public class FiltroCvs {
 
         for (String[] i: datos) {
 
+
             if(i[campo].contains(filtro))
             {
                 toReturn.add(i);
@@ -20,6 +21,8 @@ public class FiltroCvs {
 
             
         }
+
+        System.out.println(toReturn.size());
 
         return toReturn;
 
