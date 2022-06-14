@@ -2,8 +2,10 @@ FROM tomcat:9.0.1-jre8-alpine
 
 ADD ./target/* /usr/local/tomcat/webapps/
 
-COPY ./datos.csv /usr/local/tomcat/webapps/datos.csv
+COPY ./datos.csv datos.csv
 
-RUN ls -l /usr/local/tomcat/webapps/
+ARG PORT=8080
 
-CMD ["catalina.sh", "run"]
+EXPOSE $PORT
+
+CMD ["catalina.sh","run", "-b", "0.0.0.0:$PORT"]
