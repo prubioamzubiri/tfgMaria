@@ -19,7 +19,7 @@
             <br>
             <br>
     
-            Estadistica condicional: <input type="checkbox" name="conditional" value="false"/>
+            Estadistica condicional: <input type="checkbox" name="conditional"/>
     
             <br>
             <br>
