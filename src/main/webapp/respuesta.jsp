@@ -12,6 +12,10 @@
 <body>
 
     <p> Porcentaje de gente con dicho perfil: <c:out value="${requestScope.percent}"/>%</p>
+    <br>
+    <br>
+
+    <a href="../tfg">volver</a>
 
 
 </body>

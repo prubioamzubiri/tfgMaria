@@ -87,11 +87,9 @@ public class ConsultaController extends HttpServlet{
 
             String campo = "campo" + i, respuesta = "respuesta" + i;
 
-            System.out.println(campo);
 
             int head = Integer.parseInt(request.getParameter(campo));
 
-            System.out.println(head);
 
             String res = request.getParameter(respuesta);
 
