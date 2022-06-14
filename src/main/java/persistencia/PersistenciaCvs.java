@@ -43,8 +43,20 @@ public class PersistenciaCvs {
             numeroDatos = datos.size();
 
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            cvs = new CSVReader(new FileReader(new File("datos.cvs")));
+
+            headers = new ArrayList<String>(Arrays.asList(cvs.readNext()));
+
+            datos = new ArrayList<String[]>();
+
+            String[] respuesta;
+
+            while((respuesta = cvs.readNext())!= null)
+            {
+                datos.add(respuesta);
+            }
+
+            numeroDatos = datos.size();
         }
 
     }
