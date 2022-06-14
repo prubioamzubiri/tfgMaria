@@ -82,21 +82,28 @@ public class ConsultaController extends HttpServlet{
 
         List<String> headers = gbd.getHeaders();
 
-        for(int i = 0; i < numcampos; i++)
+        for(int i = 1; i <= numcampos; i++)
         {
 
             String campo = "campo" + i, respuesta = "respuesta" + i;
 
-            String head = request.getParameter(campo);
+            System.out.println(campo);
+
+            int head = Integer.parseInt(request.getParameter(campo));
+
+            System.out.println(head);
+
             String res = request.getParameter(respuesta);
 
-            int index = headers.indexOf(campo);
-
-            valores = FiltroCvs.filtro(valores, index, res);
+            valores = FiltroCvs.filtro(valores, head, res);
 
         }
 
-        float percent = valores.size()/ gbd.getNumeroDatos();
+        float tamañoV = valores.size();
+        float tamañoOri = gbd.getNumeroDatos();
+        float percent = tamañoV/ tamañoOri;
+        
+        percent = percent*100;
 
         request.setAttribute("headers", headers);
         request.setAttribute("valores", valores);
