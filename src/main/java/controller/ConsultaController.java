@@ -75,7 +75,7 @@ public class ConsultaController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 
-        
+
         int numcampos = Integer.parseInt(request.getParameter("numcampos"));
 
         List<String[]> valores = gbd.getDatos();
@@ -85,7 +85,7 @@ public class ConsultaController extends HttpServlet{
         for(int i = 0; i < numcampos; i++)
         {
 
-            String campo = "Campo" + i, respuesta = "respuesta" + i;
+            String campo = "campo" + i, respuesta = "respuesta" + i;
 
             String head = request.getParameter(campo);
             String res = request.getParameter(respuesta);
