@@ -11,10 +11,28 @@
 </head>
 <body>
 
-    <form action = "/tfg/campos" method = "POST">
-        Cuantos Campos Quieres estudiar?: <input type="number" name="numcampos"/>
-        <input type = "submit" value = "Ir" />
-     </form>
+    <div id="form">
+
+        <form action = "/tfg/campos" method = "POST">
+            ¿Cuántos campos que se quiere estudiar estudiar?: <input type="number" name="numcampos" value="1"/>
+    
+            <br>
+            <br>
+    
+            Estadistica condicional: <input type="checkbox" name="conditional" value="false"/>
+    
+            <br>
+            <br>
+            ¿Cuantos campos adicionales se quieren estudiar? : <input type="number" name="condnumcampos" value="0"/>
+    
+            <br>
+            <br>
+    
+            <input type = "submit" value = "Ir" />
+         </form>
+    
+        </div>
+    
 
 </body>
 </html>
