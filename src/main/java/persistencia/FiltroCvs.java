@@ -1,11 +1,12 @@
 package persistencia;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FiltroCvs {
 
 
-    public static ArrayList<String[]> filtro (ArrayList<String[]> datos, int campo, String filtro)
+    public static ArrayList<String[]> filtro (List<String[]> datos, int campo, String filtro)
     {
         
         ArrayList<String[]> toReturn = new ArrayList<String[]>();

@@ -1,13 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 import com.opencsv.exceptions.CsvValidationException;
 
+import persistencia.FiltroCvs;
 import persistencia.PersistenciaCvs;
 
 public class ConsultaController extends HttpServlet{
@@ -47,7 +51,7 @@ public class ConsultaController extends HttpServlet{
 
             //gbd.insertData();
 
-            //RequestDispatcher rd = request.getRequestDispatcher("conf-datosInsertados.jsp");
+            //RequestDispatcher rd = request.getRequestDispatcher("respuesta.jsp");
 
             //rd.forward(request, response);
             
@@ -69,7 +73,39 @@ public class ConsultaController extends HttpServlet{
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doGet(request, response);
+		
+        int numcampos = Integer.parseInt(request.getParameter("numcampos"));
+
+        List<String[]> valores = gbd.getDatos();
+
+        List<String> headers = gbd.getHeaders();
+
+        for(int i = 0; i < numcampos; i++)
+        {
+
+            String campo = "Campo" + i, respuesta = "respuesta" + i;
+
+            String head = request.getParameter(campo);
+            String res = request.getParameter(respuesta);
+
+            int index = headers.indexOf(campo);
+
+            valores = FiltroCvs.filtro(valores, index, res);
+
+        }
+
+        float percent = valores.size()/ gbd.getNumeroDatos();
+
+        request.setAttribute("headers", headers);
+        request.setAttribute("valores", valores);
+        request.setAttribute("numactual", valores.size());
+        request.setAttribute("percent", percent);
+        request.setAttribute("numinicial", gbd.getNumeroDatos());
+        
+        RequestDispatcher rd = request.getRequestDispatcher("respuesta.jsp");
+
+        rd.forward(request, response);
+
 	}
     
 }
